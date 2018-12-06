@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-deployment-service
+  labels:
+    name: redis-deployment-service
+    app: demo-guestbook-app
+spec:
+  selector:
+    type: ClusterIP
+    name: redis-deploymet
+    app: demo-guestbook-app
+  ports:
+  - port: 6379
+    targetPort: 6379
