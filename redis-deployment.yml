@@ -5,23 +5,22 @@ metadata:
   labels:
     name: redis-deployment
     app: demo-guestbook-app
-
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      name: redis-pod
+      app: demo-guestbook-app
   template:
     metadata:
       name: redis-pod
       labels:
         name: redis-pod
         app: demo-guestbook-app
-
     spec:
       containers:
         - name: redis
           image: redis
           ports:
-            - containerPort: 6379
-  selector:
-    matchLabels:
-      name: redis-pod
-      app: demo-guestbook-app
+          - containerPort: 6379
+  
