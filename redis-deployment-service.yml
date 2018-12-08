@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: redis-deployment-service
+  name: redis-service
   labels:
-    name: redis-deployment-service
+    name: redis-service
     app: demo-guestbook-app
 spec:
   selector:
     type: ClusterIP
-    name: redis-deploymet
+    name: redis-pod
     app: demo-guestbook-app
   ports:
   - port: 6379
